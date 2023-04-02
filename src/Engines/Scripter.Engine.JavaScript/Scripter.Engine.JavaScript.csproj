@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0;net48</TargetFrameworks>
+    <AssemblyName>doob.Scripter.Engine.Javascript</AssemblyName>
+    <RootNamespace>doob.Scripter.Engine.Javascript</RootNamespace>
+    <LangVersion>11</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description></Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/doob-at/Scripter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doob-at/Scripter</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>doob.Scripter.Engine.Javascript</PackageId>
+    <Product>doob.Scripter.Engine.Javascript</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.1" />
+    <PackageReference Include="Jint" Version="3.0.0-beta-2048" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Scripter.Shared\Scripter.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+    <AssemblyName>doob.Scripter.Engine.Powershell</AssemblyName>
+    <RootNamespace>doob.Scripter.Engine.Powershell</RootNamespace>
+    <LangVersion>9</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description></Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/doob-at/Scripter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doob-at/Scripter</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>doob.Scripter.Engine.Powershell</PackageId>
+    <Product>doob.Scripter.Engine.Powershell</Product>
+  </PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.PowerShell.SDK" Version="7.3.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.1" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Scripter.Shared\Scripter.Shared.csproj" />
+	</ItemGroup>
+
+</Project>

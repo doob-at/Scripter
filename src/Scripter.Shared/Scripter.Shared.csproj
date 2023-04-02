@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0;net48</TargetFrameworks>
+    <AssemblyName>doob.Scripter.Shared</AssemblyName>
+    <RootNamespace>doob.Scripter.Shared</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description></Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/doob-at/Scripter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doob-at/Scripter</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>doob.Scripter.Shared</PackageId>
+    <Product>doob.Scripter.Shared</Product>
+    <Version>0.0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="doob.Reflectensions" Version="6.4.1" />
+    <PackageReference Include="NamedServices.Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0;net48</TargetFrameworks>
+    <AssemblyName>doob.Scripter.Module.Template</AssemblyName>
+    <RootNamespace>doob.Scripter.Module.Template</RootNamespace>
+    <LangVersion>9</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description></Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/doob-at/Scripter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doob-at/Scripter</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>doob.Scripter.Module.Template</PackageId>
+    <Product>doob.Scripter.Module.Template</Product>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Scriban" Version="5.7.0" />
+    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Scripter.Shared\Scripter.Shared.csproj" />
+	</ItemGroup>
+
+</Project>

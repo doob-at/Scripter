@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0;net48</TargetFrameworks>
+		<AssemblyName>doob.Scripter.Module.Database</AssemblyName>
+		<RootNamespace>doob.Scripter.Module.Database</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>Bernhard Windisch</Authors>
+		<Company>-</Company>
+		<Description></Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/doob-at/Scripter</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/doob-at/Scripter</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageId>doob.Scripter.Module.Database</PackageId>
+		<Product>doob.Scripter.Module.Database</Product>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Npgsql" Version="7.0.2" />
+		<PackageReference Include="SqlKata" Version="2.4.0" />
+		<PackageReference Include="SqlKata.Execution" Version="2.4.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Scripter.Shared\Scripter.Shared.csproj" />
+	</ItemGroup>
+
+</Project>

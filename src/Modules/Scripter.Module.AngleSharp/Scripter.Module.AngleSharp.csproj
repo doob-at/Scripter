@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+	  <AssemblyName>doob.Scripter.Module.AngleSharp</AssemblyName>
+	  <RootNamespace>doob.Scripter.Module.AngleSharp</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>Bernhard Windisch</Authors>
+		<Company>-</Company>
+		<Description></Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/doob-at/Scripter</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/doob-at/Scripter</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageId>doob.Scripter.Module.AngleSharp</PackageId>
+		<Product>doob.Scripter.Module.AngleSharp</Product>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AngleSharp" Version="1.0.1" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Scripter.Shared\Scripter.Shared.csproj" />
+	</ItemGroup>
+
+</Project>

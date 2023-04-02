@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+    <AssemblyName>doob.Scripter.Module.Http</AssemblyName>
+    <RootNamespace>doob.Scripter.Module.Http</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description></Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/doob-at/Scripter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doob-at/Scripter</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>doob.Scripter.Module.Http</PackageId>
+    <Product>doob.Scripter.Module.Http</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="doob.Reflectensions.CommonExtensions" Version="6.4.1" />
+	  <PackageReference Include="doob.Reflectensions.ExpandableObject" Version="6.4.1" />
+	  <PackageReference Include="DynamicExpresso.Core" Version="2.16.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.1" />
+    <PackageReference Include="Nito.AsyncEx.Tasks" Version="5.1.2" />
+   
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Scripter.Shared\Scripter.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

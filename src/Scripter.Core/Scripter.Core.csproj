@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0;net48</TargetFrameworks>
+    <AssemblyName>doob.Scripter.Core</AssemblyName>
+    <RootNamespace>doob.Scripter.Core</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description></Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/doob-at/Scripter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doob-at/Scripter</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>doob.Scripter</PackageId>
+    <Product>doob.Scripter</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <ProjectReference Include="..\Scripter.Shared\Scripter.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

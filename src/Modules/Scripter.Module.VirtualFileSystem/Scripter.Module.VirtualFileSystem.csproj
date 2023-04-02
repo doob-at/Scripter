@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+	  <AssemblyName>doob.Scripter.Module.VirtualFileSystem</AssemblyName>
+	  <RootNamespace>doob.Scripter.Module.VirtualFileSystem</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>Bernhard Windisch</Authors>
+		<Company>-</Company>
+		<Description></Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/doob-at/Scripter</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/doob-at/Scripter</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageId>doob.Scripter.Module.VirtualFileSystem</PackageId>
+		<Product>doob.Scripter.Module.VirtualFileSystem</Product>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Zio" Version="0.16.2" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Scripter.Shared\Scripter.Shared.csproj" />
+	</ItemGroup>
+
+</Project>
