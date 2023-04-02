@@ -18,8 +18,11 @@ name: PR
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
+    paths-ignore:
+    - 'doc/**'
+    - 'readme.md'
+    - 'README.md'
 
 jobs:
   ubuntu-latest:
@@ -38,6 +41,3 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
       - name: Run './build.cmd Test'
         run: ./build.cmd Test
-        env:
-          NugetApiKey: ${{ secrets.NUGET_API_KEY }}
-          NugetApiUrl: ${{ secrets.NUGET_API_URL }}
