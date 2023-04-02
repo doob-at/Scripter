@@ -53,9 +53,6 @@
         "NugetApiUrl": {
           "type": "string"
         },
-        "NugetSymbolSource": {
-          "type": "string"
-        },
         "Partition": {
           "type": "string",
           "description": "Partition to use on CI"
