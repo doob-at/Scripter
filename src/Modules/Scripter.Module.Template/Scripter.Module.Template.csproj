@@ -22,7 +22,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Scriban" Version="5.7.0" />
-    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.1" />
+    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.2" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 

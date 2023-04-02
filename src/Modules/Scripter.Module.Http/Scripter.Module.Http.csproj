@@ -21,14 +21,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="doob.Reflectensions.CommonExtensions" Version="6.4.1" />
-	  <PackageReference Include="doob.Reflectensions.ExpandableObject" Version="6.4.1" />
+	  <PackageReference Include="doob.Reflectensions.CommonExtensions" Version="6.4.2" />
+	  <PackageReference Include="doob.Reflectensions.ExpandableObject" Version="6.4.2" />
 	  <PackageReference Include="DynamicExpresso.Core" Version="2.16.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Primitives" Version="7.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.1" />
+    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.2" />
     <PackageReference Include="Nito.AsyncEx.Tasks" Version="5.1.2" />
    
   </ItemGroup>
