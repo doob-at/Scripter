@@ -32,20 +32,15 @@ namespace doob.Scripter.Engine.Javascript
 
         private Jint.Engine _engine;
 
-        private readonly Dictionary<Type, Func<object>> _providedTypeFactories = new Dictionary<Type, Func<object>>();
-        private readonly List<string> _useTaggedModules = new List<string>();
-        private readonly Dictionary<Type, object> _instantiatedModules = new Dictionary<Type, object>();
+        private readonly Dictionary<Type, Func<object>> _providedTypeFactories = new();
+        private readonly List<string> _useTaggedModules = new();
+        private readonly Dictionary<Type, object> _instantiatedModules = new();
 
-        private static ConcurrentDictionary<Type, string> _esModules = new();
+        private static readonly ConcurrentDictionary<Type, string> EsModules = new();
 
-        private static readonly ParserOptions _esprimaOptions = new()
-        {
-            Tolerant = true
-        };
+        private readonly CancellationTokenSource _cancellationTokenSource = new();
 
-        private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
-
-        private ObjectInstance? ScripterScope = null;
+        private ObjectInstance? _mainModule = null;
 
         public JavaScriptEngine(IServiceProvider serviceProvider, IScripter scripter, JavaScriptEngineOptions scriptEngineOptions)
         {
@@ -59,7 +54,6 @@ namespace doob.Scripter.Engine.Javascript
 
         private void Initialize()
         {
-            _engine.Execute("var exports = {};", _esprimaOptions);
             _engine.SetValue("exit", new Action(Stop));
             _engine.SetValue("NewObject", new Func<string, object[], object?>(TypeHelper.CreateObject));
             _engine.SetValue("require", new Func<string, JsValue>(Require));
@@ -156,11 +150,9 @@ namespace doob.Scripter.Engine.Javascript
 
         public object InvokeFunction(string name, params object[] args)
         {
-            if (ScripterScope != null)
+            if (_mainModule != null)
             {
-                return _engine.Invoke(ScripterScope.Get(name), args);
-                //return ScripterScope.Engine.Invoke(name, args);
-                //return ScripterScope.in.Get(name);
+                return _engine.Invoke(_mainModule.Get(name), args);
             }
             return _engine.Invoke(name, args);
         }
@@ -205,9 +197,9 @@ namespace doob.Scripter.Engine.Javascript
 
         private JsValue InternalGetValue(string name)
         {
-            if (ScripterScope != null)
+            if (_mainModule != null)
             {
-                return ScripterScope.Get(name);
+                return _mainModule.Get(name);
             }
             return _engine.GetValue(name);
         }
@@ -221,16 +213,15 @@ namespace doob.Scripter.Engine.Javascript
         private object? InternalExecute(string script)
         {
 
-            if (String.IsNullOrWhiteSpace(script))
+            if (string.IsNullOrWhiteSpace(script))
                 return null;
 
 
             try
             {
                 AddModules();
-                _engine.AddModule("ScripterInvokeModule", script);
-                ScripterScope = _engine.ImportModule("ScripterInvokeModule");
-                //_engine.Execute(script);
+                _engine.AddModule("__main__", script);
+                _mainModule = _engine.ImportModule("__main__");
                 return null;
 
             }
@@ -260,7 +251,7 @@ namespace doob.Scripter.Engine.Javascript
 
             foreach (var moduleDefinition in moduleDefinitions)
             {
-                var src = _esModules.GetOrAdd(moduleDefinition.ModuleType, type =>
+                var src = EsModules.GetOrAdd(moduleDefinition.ModuleType, type =>
                 {
                     var methods = moduleDefinition.ModuleType.GetMethods(BindingFlags.Instance | BindingFlags.Public);
                     var properties =
@@ -285,8 +276,7 @@ namespace doob.Scripter.Engine.Javascript
             
         }
 
-        private JsValue Require(string value)
-        {
+        private JsValue Require(string value) {
             var inst = _scripter.ModuleRegistry.BuildModuleInstance(value, _serviceProvider, this, _providedTypeFactories, _useTaggedModules);
             _instantiatedModules[inst.GetType()] = inst;
             return JsValue.FromObject(_engine, inst);
