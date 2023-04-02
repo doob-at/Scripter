@@ -8,10 +8,12 @@ using doob.Scripter.Engine.Javascript;
 using doob.Scripter.Engine.TypeScript;
 using doob.Scripter.Module.Common;
 using doob.Scripter.Module.Http;
+using doob.Scripter.Module.Logging;
 using doob.Scripter.Shared;
 using Jint;
 using Jint.Native;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using NamedServices.Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
@@ -33,8 +35,10 @@ namespace TypeScriptTests
                 .AddTypeScriptEngine()
                 .AddScripterModule<HttpModule>()
                 .AddScripterModule<CommonModule>()
+                .AddScripterModule<LoggingModule>()
             );
 
+            sc.AddLogging(c => c.AddConsole());
 
             ServiceProvider = sc.BuildServiceProvider();
         }
@@ -80,6 +84,24 @@ export function myFunc(name: string, age: number) {
             var f1 = func.Invoke("Bernhard", 41);
             var t = tsEngine.InvokeFunction("myFunc", "Bernhard", 41);
            
+
+        }
+
+
+        [Fact]
+        public async Task LoggingTest()
+        {
+            var tsEngine = ServiceProvider.GetRequiredService<IScripter>().GetScriptEngine("TypeScript");
+
+            var tsScript = @"
+import * as logger from 'Logging'
+
+logger.Info(99, 'TestMessage');
+
+";
+
+            var jsScript = tsEngine.CompileScript(tsScript);
+            await tsEngine.ExecuteAsync(jsScript);
 
         }
 

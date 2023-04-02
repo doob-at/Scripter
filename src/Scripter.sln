@@ -43,6 +43,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\_build.c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scripter.JintTsDefinition", "Scripter.JintTsDefinition\Scripter.JintTsDefinition.csproj", "{FBD6BCBE-DBE8-4ABE-A778-91DC909E51E2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scripter.Module.Logging", "Modules\Scripter.Module.Logging\Scripter.Module.Logging.csproj", "{266D653F-97A3-4332-AC44-853E4DF6C09D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,10 @@ Global
 		{FBD6BCBE-DBE8-4ABE-A778-91DC909E51E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBD6BCBE-DBE8-4ABE-A778-91DC909E51E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBD6BCBE-DBE8-4ABE-A778-91DC909E51E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266D653F-97A3-4332-AC44-853E4DF6C09D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266D653F-97A3-4332-AC44-853E4DF6C09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266D653F-97A3-4332-AC44-853E4DF6C09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266D653F-97A3-4332-AC44-853E4DF6C09D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +139,7 @@ Global
 		{39754724-FC05-497A-A29C-104611DB22E8} = {48AFF356-FD55-4E0A-B2D1-B12191DC12AC}
 		{46733061-C326-4878-BD88-F4F97EE6D098} = {69B59DB6-7A9F-41F8-B6F2-8564BE5FC7C8}
 		{29B4F75E-ECEA-46CA-8D6D-36637146631D} = {69B59DB6-7A9F-41F8-B6F2-8564BE5FC7C8}
+		{266D653F-97A3-4332-AC44-853E4DF6C09D} = {48AFF356-FD55-4E0A-B2D1-B12191DC12AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33397B7D-B2F3-4C31-9057-A6BF4D3AB174}
