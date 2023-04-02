@@ -11,15 +11,6 @@ using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-[GitHubActions(
-    "PR",
-    GitHubActionsImage.UbuntuLatest,
-    AutoGenerate = true,
-    FetchDepth = 0,
-    OnPullRequestBranches = new [] {"main"},
-    InvokedTargets = new [] { nameof(Test)},
-    ImportSecrets = new [] { nameof(NugetApiKey), nameof(NugetApiUrl)}
-)]
 class Build : NukeBuild
 {
 
