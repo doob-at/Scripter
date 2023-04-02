@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;net48</TargetFrameworks>
+    <TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
     <AssemblyName>doob.Scripter.Module.Template</AssemblyName>
     <RootNamespace>doob.Scripter.Module.Template</RootNamespace>
-    <LangVersion>9</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
