@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <AssemblyName>doob.Scripter.JintTsDefinition</AssemblyName>
+    <RootNamespace>doob.Scripter.JintTsDefinition</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description></Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/doob-at/Scripter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doob-at/Scripter</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>doob.Scripter.JintTsDefinition</PackageId>
+    <Product>doob.Scripter.JintTsDefinition</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="TsDefinitions\global.d.ts" />
+    <None Remove="TsDefinitions\lib.es2015.core.d.ts" />
+    <None Remove="TsDefinitions\lib.es5.d.ts" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="TsDefinitions\global.d.ts" LogicalName="global.d.ts">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TsDefinitions\lib.es2015.core.d.ts" LogicalName="lib.es2015.core.d.ts">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TsDefinitions\lib.es5.d.ts" LogicalName="lib.es5.d.ts">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="doob.Reflectensions.CommonExtensions" Version="6.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Engines\Scripter.Engine.JavaScript\Scripter.Engine.JavaScript.csproj" />
+  </ItemGroup>
+
+</Project>

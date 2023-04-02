@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="doob.Reflectensions" Version="6.4.1" />
+    <PackageReference Include="doob.Reflectensions" Version="6.4.2" />
     <PackageReference Include="NamedServices.Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
   </ItemGroup>
 
