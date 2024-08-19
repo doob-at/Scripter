@@ -27,7 +27,7 @@ namespace doob.Scripter.Core
            
         }
 
-        internal void RegisterEngine(Type engineType, IScriptEngineOptions options)
+        internal void RegisterEngine(Type engineType, IScriptEngineOptions? options)
         {
 
             if (_registered.Contains(engineType.FullName!))

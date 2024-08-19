@@ -94,7 +94,7 @@ namespace doob.Scripter.Engine.Powershell
             return default;
         }
 
-        public ScriptFunction? GetFunction(string name)
+        public ScripterFunction? GetFunction(string name)
         {
 
             var fD = _psEngine.Invoke($"$fD = Get-Command -Name '{name}' -ErrorAction SilentlyContinue | Select-Object -First 1; $fD | Select-Object Name").FirstOrDefault();
@@ -111,7 +111,7 @@ namespace doob.Scripter.Engine.Powershell
                     dict.Add(k, typeof(UnknownType));
                 }
                 
-                return new ScriptFunction(fD.Properties["Name"].Value.ToString(), dict, this);
+                return new ScripterFunction(fD.Properties["Name"].Value.ToString(), dict, this);
             }
             return null;
 

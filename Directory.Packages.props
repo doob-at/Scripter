@@ -1,0 +1,38 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="AngleSharp" Version="1.1.2" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.2" />
+    <PackageVersion Include="doob.Reflectensions" Version="6.4.2" />
+    <PackageVersion Include="doob.Reflectensions.CommonExtensions" Version="6.4.2" />
+    <PackageVersion Include="doob.Reflectensions.ExpandableObject" Version="6.4.2" />
+    <PackageVersion Include="doob.Reflectensions.Json" Version="6.4.2" />
+    <PackageVersion Include="DynamicExpresso.Core" Version="2.16.1" />
+    <PackageVersion Include="Jint" Version="4.0.1" />
+    <PackageVersion Include="MailKit" Version="4.7.1.1" />
+    <PackageVersion Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Primitives" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageVersion Include="Microsoft.PowerShell.SDK" Version="7.3.12" />
+    <PackageVersion Include="NamedServices.Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageVersion Include="Nito.AsyncEx.Tasks" Version="5.1.2" />
+    <PackageVersion Include="Npgsql" Version="8.0.3" />
+    <PackageVersion Include="Nuke.Common" Version="6.3.0" />
+    <PackageVersion Include="Scriban" Version="5.10.0" />
+    <PackageVersion Include="SqlKata" Version="2.4.0" />
+    <PackageVersion Include="SqlKata.Execution" Version="2.4.0" />
+    <PackageVersion Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageVersion Include="xunit" Version="2.9.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <PackageVersion Include="Zio" Version="0.19.2" />
+  </ItemGroup>
+</Project>

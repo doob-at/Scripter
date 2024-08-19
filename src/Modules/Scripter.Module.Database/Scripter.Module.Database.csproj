@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
 		<AssemblyName>doob.Scripter.Module.Database</AssemblyName>
 		<RootNamespace>doob.Scripter.Module.Database</RootNamespace>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -22,10 +22,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Npgsql" Version="7.0.2" />
-		<PackageReference Include="SqlKata" Version="2.4.0" />
-		<PackageReference Include="SqlKata.Execution" Version="2.4.0" />
-		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+		<PackageReference Include="Npgsql" />
+		<PackageReference Include="SqlKata" />
+		<PackageReference Include="SqlKata.Execution" />
+		<PackageReference Include="System.Data.SqlClient" />
 	</ItemGroup>
 
 	<ItemGroup>

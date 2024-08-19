@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
     <AssemblyName>doob.Scripter.Module.Template</AssemblyName>
     <RootNamespace>doob.Scripter.Module.Template</RootNamespace>
     <LangVersion>latest</LangVersion>
@@ -21,9 +21,9 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Scriban" Version="5.7.0" />
-    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.2" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Scriban" />
+    <PackageReference Include="doob.Reflectensions.Json" />
+		<PackageReference Include="Newtonsoft.Json" />
 	</ItemGroup>
 
 	<ItemGroup>

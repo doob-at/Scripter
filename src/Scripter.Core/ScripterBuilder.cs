@@ -29,7 +29,7 @@ namespace doob.Scripter.Core
         }
 
 
-        public IScripterContext AddScripterEngine(Type engineType, IScriptEngineOptions options = null)
+        public IScripterContext AddScripterEngine(Type engineType, IScriptEngineOptions? options = null)
         {
             _engineRegistry.RegisterEngine(engineType, options);
             return this;

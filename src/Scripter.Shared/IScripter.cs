@@ -5,6 +5,6 @@
         IScripterModuleRegistry ModuleRegistry { get; }
         IScripterEngineRegistry EngineRegistry { get; }
         
-        IScriptEngine GetScriptEngine(string name);
+        IScriptEngine? GetScriptEngine(string name);
     }
 }

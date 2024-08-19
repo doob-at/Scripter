@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Dynamic;
+using System.Linq;
+using System.Management.Automation;
 using System.Threading.Tasks;
 using doob.Reflectensions;
+using doob.Reflectensions.ExtensionMethods;
 using doob.Scripter;
 using doob.Scripter.Core;
 using doob.Scripter.Engine.Powershell;
@@ -114,7 +118,8 @@ function ExecuteResponse([string]$name, [int]$age) {
             var func = psEngine.GetFunction("ExecuteResponse");
             if (func != null)
             {
-                var returnValue = func.Invoke("Bernhard", 41);
+                var returnValue = func.Invoke("Bernhard", 41).Reflect().As<Collection<PSObject>>().First().ToString();
+                Assert.Equal("Bernhard:41", returnValue);
                 //var returnValue = tsEngine.InvokeFunction("ExecuteResponse", "Bernhard", 41);
 
             }

@@ -32,7 +32,7 @@ namespace doob.Scripter.Shared
 
         T? GetModuleState<T>();
 
-        ScriptFunction GetFunction(string name);
+        ScripterFunction? GetFunction(string name);
 
         object InvokeFunction(string name, params object[] args);
 

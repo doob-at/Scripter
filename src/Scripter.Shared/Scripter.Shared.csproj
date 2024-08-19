@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
     <AssemblyName>doob.Scripter.Shared</AssemblyName>
     <RootNamespace>doob.Scripter.Shared</RootNamespace>
     <LangVersion>latest</LangVersion>
@@ -22,8 +22,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="doob.Reflectensions" Version="6.4.2" />
-    <PackageReference Include="NamedServices.Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="doob.Reflectensions" />
+    <PackageReference Include="NamedServices.Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
 
 </Project>

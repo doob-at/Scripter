@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using doob.Reflectensions.ExtensionMethods;
 using doob.Scripter.Shared;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -25,7 +22,7 @@ namespace doob.Scripter.Core
         }
 
 
-        public IScriptEngine GetScriptEngine(string name)
+        public IScriptEngine? GetScriptEngine(string name)
         {
             var engineEntry = EngineRegistry.GetRegisteredEngine(name);
 
@@ -47,7 +44,7 @@ namespace doob.Scripter.Core
                 }
                 else
                 {
-                    var instanceDictionary = new Dictionary<Type, Func<object>>();
+                    var instanceDictionary = new Dictionary<Type, Func<object?>>();
                     instanceDictionary[typeof(IScripter)] = () => this;
                     instanceDictionary[typeof(IScriptEngineOptions)] = () => engineEntry.Options;
 
@@ -70,9 +67,9 @@ namespace doob.Scripter.Core
 
         }
 
-        private object[] BuildConstructorParameters(ParameterInfo[] parameterInfos, IServiceProvider serviceProvider, Dictionary<Type, Func<object>> instances)
+        private object?[] BuildConstructorParameters(ParameterInfo[] parameterInfos, IServiceProvider serviceProvider, Dictionary<Type, Func<object?>> instances)
         {
-            var parameterInstances = new List<object>();
+            var parameterInstances = new List<object?>();
             foreach (var parameterInfo in parameterInfos)
             {
                 if (instances.TryGetValue(parameterInfo.ParameterType, out var instance))

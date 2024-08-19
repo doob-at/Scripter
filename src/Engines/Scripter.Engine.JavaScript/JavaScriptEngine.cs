@@ -6,17 +6,18 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Acornima.Ast;
 using doob.Reflectensions;
 using doob.Scripter.Shared;
-using Esprima;
-using Esprima.Ast;
 using Jint;
 using Jint.Native;
 using Jint.Native.Function;
+using Jint.Native.Json;
 using Jint.Native.Object;
 using Jint.Runtime;
 using Jint.Runtime.Debugger;
 using Newtonsoft.Json.Linq;
+
 
 namespace doob.Scripter.Engine.Javascript
 {
@@ -31,7 +32,9 @@ namespace doob.Scripter.Engine.Javascript
         public JavaScriptEngineOptions ScriptEngineOptions { get; }
 
         private Jint.Engine _engine;
-
+        private JsonParser _jsonParser;
+        private JsonSerializer _jsonSerializer;
+        
         private readonly Dictionary<Type, Func<object>> _providedTypeFactories = new();
         private readonly List<string> _useTaggedModules = new();
         private readonly Dictionary<Type, object> _instantiatedModules = new();
@@ -48,6 +51,8 @@ namespace doob.Scripter.Engine.Javascript
             _scripter = scripter;
             ScriptEngineOptions = scriptEngineOptions;
             _engine = new Jint.Engine(ScriptEngineOptions.JintOptions.CancellationToken(_cancellationTokenSource.Token));
+            _jsonParser = new JsonParser(_engine);
+            _jsonSerializer = new JsonSerializer(_engine);
             Initialize();
 
         }
@@ -83,18 +88,16 @@ namespace doob.Scripter.Engine.Javascript
             if (json == null)
                 return null;
 
-            var val = JsValue.FromObject(_engine, json);
-            return _engine.Realm.Intrinsics.Json.Parse(val, new[] { val });
+            return _jsonParser.Parse(json);
         }
 
         public string JsonStringify(object? value)
         {
             switch (value)
             {
-                case JsValue jsValue:
-                {
-                    return _engine.Realm.Intrinsics.Json.Stringify(jsValue, new[] { jsValue }).AsString();
-                }
+                case JsValue jsValue: {
+                    return _jsonSerializer.Serialize(jsValue).AsString();
+                } 
                 case JToken jToken:
                     {
                         return jToken.ToString();
@@ -119,19 +122,19 @@ namespace doob.Scripter.Engine.Javascript
         public T? GetModuleState<T>()
         {
             var type = typeof(T);
-            if (_instantiatedModules.ContainsKey(type))
+            if (_instantiatedModules.TryGetValue(type, out var module))
             {
-                return (T)_instantiatedModules[type];
+                return (T)module;
             }
 
             return default;
         }
 
-        public ScriptFunction? GetFunction(string name)
+        public ScripterFunction? GetFunction(string name)
         {
             var val = InternalGetValue(name);
 
-            if (val is ScriptFunctionInstance func)
+            if (val is  ScriptFunction func)
             {
                 var paramsTypeDict = new Dictionary<string, Type>();
                 var functionDeclarationParams = func.FunctionDeclaration.Params;
@@ -142,7 +145,7 @@ namespace doob.Scripter.Engine.Javascript
                         paramsTypeDict.Add(identifier.Name, typeof(UnknownType));
                     }
                 }
-                return new ScriptFunction(func.FunctionDeclaration?.Id?.Name ?? name, paramsTypeDict, this);
+                return new ScripterFunction(func.FunctionDeclaration.Id?.Name ?? name, paramsTypeDict, this);
             }
 
             return null;
@@ -182,7 +185,7 @@ namespace doob.Scripter.Engine.Javascript
         public string GetValueAsJson(string name)
         {
             var value = InternalGetValue(name);
-            return _engine.Realm.Intrinsics.Json.Stringify(value, new[] { value }).AsString();
+            return _jsonSerializer.Serialize(value).AsString();
         }
 
         public T? GetValue<T>(string name)
@@ -220,12 +223,12 @@ namespace doob.Scripter.Engine.Javascript
             try
             {
                 AddModules();
-                _engine.AddModule("__main__", script);
-                _mainModule = _engine.ImportModule("__main__");
+                _engine.Modules.Add("__main__", script);
+                _mainModule = _engine.Modules.Import("__main__");
                 return null;
 
             }
-            catch (ExecutionCanceledException canceledException)
+            catch (ExecutionCanceledException _)
             {
                 //ignore
             }
@@ -258,9 +261,13 @@ namespace doob.Scripter.Engine.Javascript
                         moduleDefinition.ModuleType.GetProperties(BindingFlags.Instance | BindingFlags.Public);
                     var sourceParts = new StringBuilder();
                     sourceParts.AppendLine($"var __{moduleDefinition.Name} = require('{moduleDefinition.Name}');");
-                    foreach (var methodInfo in methods)
-                    {
-                        sourceParts.AppendLine($"export function {methodInfo.Name}() {{ return __{moduleDefinition.Name}.{methodInfo.Name}(...arguments); }}");
+                    var processedMethods = new List<string>();
+                    foreach (var methodInfo in methods) {
+                        if (!processedMethods.Contains(methodInfo.Name)) {
+                            processedMethods.Add(methodInfo.Name);
+                            sourceParts.AppendLine($"export function {methodInfo.Name}() {{ return __{moduleDefinition.Name}.{methodInfo.Name}(...arguments); }}");
+                        }
+                        
                     }
 
                     foreach (var propertyInfo in properties)
@@ -271,7 +278,7 @@ namespace doob.Scripter.Engine.Javascript
                     return sourceParts.ToString();
                 });
                 
-                _engine.AddModule(moduleDefinition.Name, src);
+                _engine.Modules.Add(moduleDefinition.Name, src);
             }
             
         }
@@ -286,6 +293,8 @@ namespace doob.Scripter.Engine.Javascript
         {
             _engine = null!;
         }
+
+        
 
 
     }

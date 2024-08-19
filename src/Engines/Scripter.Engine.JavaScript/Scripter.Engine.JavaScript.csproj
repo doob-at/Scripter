@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
     <AssemblyName>doob.Scripter.Engine.Javascript</AssemblyName>
     <RootNamespace>doob.Scripter.Engine.Javascript</RootNamespace>
     <LangVersion>11</LangVersion>
@@ -21,9 +21,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.2" />
-    <PackageReference Include="Jint" Version="3.0.0-beta-2048" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="doob.Reflectensions.Json" />
+    <PackageReference Include="Jint" />
+    <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
 
 

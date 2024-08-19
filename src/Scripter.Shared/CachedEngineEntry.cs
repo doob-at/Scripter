@@ -7,7 +7,7 @@ namespace doob.Scripter.Shared
         public Func<IServiceProvider, IScriptEngine>? Factory { get; set; }
         public IScriptEngineOptions? Options { get; set; }
 
-        public CachedEngineEntry(Type engineType, Func<IServiceProvider, IScriptEngine>? factory, IScriptEngineOptions options)
+        public CachedEngineEntry(Type engineType, Func<IServiceProvider, IScriptEngine>? factory, IScriptEngineOptions? options)
         {
             EngineType = engineType;
             Factory = factory;

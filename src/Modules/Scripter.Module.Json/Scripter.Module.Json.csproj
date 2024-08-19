@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
 		<AssemblyName>doob.Scripter.Module.Json</AssemblyName>
 		<RootNamespace>doob.Scripter.Module.Json</RootNamespace>
 		<LangVersion>9</LangVersion>
@@ -21,7 +21,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="doob.Reflectensions.Json" Version="6.4.2" />
+	  <PackageReference Include="doob.Reflectensions.Json" />
 	</ItemGroup>
 	
 

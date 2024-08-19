@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
 	  <AssemblyName>doob.Scripter.Module.AngleSharp</AssemblyName>
 	  <RootNamespace>doob.Scripter.Module.AngleSharp</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -22,7 +22,7 @@
 	</PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AngleSharp" Version="1.0.1" />
+    <PackageReference Include="AngleSharp" />
   </ItemGroup>
 
 	<ItemGroup>

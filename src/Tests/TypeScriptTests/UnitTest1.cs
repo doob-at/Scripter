@@ -96,7 +96,7 @@ export function myFunc(name: string, age: number) {
             var tsScript = @"
 import * as logger from 'Logging'
 
-logger.Info(99, 'TestMessage');
+logger.Info(99, 'TestMessage!!!');
 
 ";
 

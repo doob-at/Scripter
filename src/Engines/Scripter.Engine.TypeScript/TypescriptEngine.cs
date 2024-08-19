@@ -3,9 +3,10 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Acornima;
+using Acornima.Ast;
 using doob.Scripter.Engine.Javascript;
 using doob.Scripter.Shared;
-using Esprima;
 using Jint;
 
 namespace doob.Scripter.Engine.TypeScript
@@ -17,7 +18,7 @@ namespace doob.Scripter.Engine.TypeScript
 
         private readonly JavaScriptEngine _javascriptEngine;
 
-        private static readonly ParserOptions _esprimaOptions = new() {
+        private static readonly ScriptParsingOptions _esprimaOptions = new() {
             Tolerant = true
         };
 
@@ -62,7 +63,7 @@ namespace doob.Scripter.Engine.TypeScript
             return _javascriptEngine.GetModuleState<T>();
         }
 
-        public ScriptFunction GetFunction(string name)
+        public ScripterFunction GetFunction(string name)
         {
             return _javascriptEngine.GetFunction(name);
         }
@@ -102,7 +103,7 @@ namespace doob.Scripter.Engine.TypeScript
         }
 
 
-        private static Esprima.Ast.Script? TypeScriptScript;
+        private static  Prepared<Script>? TypeScriptScript;
         private string CompileScriptInternal(string sourceCode)
         {
             if (String.IsNullOrWhiteSpace(sourceCode))
@@ -149,16 +150,17 @@ namespace doob.Scripter.Engine.TypeScript
             {
                 var tsLib = GetFromResources("typescript.min.js");
                 
-                var parser = new JavaScriptParser();
+                var parser = new Parser();
 
-                TypeScriptScript = parser.ParseScript(tsLib);
+                
+                TypeScriptScript = Jint.Engine.PrepareScript(tsLib);
             }
 
 
 
             var _engine = new Jint.Engine();
 
-            _engine.Execute(TypeScriptScript);
+            _engine.Execute((Prepared<Script>)TypeScriptScript);
 
 
 
